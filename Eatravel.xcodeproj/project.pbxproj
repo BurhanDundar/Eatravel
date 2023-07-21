@@ -16,6 +16,14 @@
 		228270462A6AAC40004F1210 /* EatravelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228270452A6AAC40004F1210 /* EatravelTests.swift */; };
 		228270502A6AAC40004F1210 /* EatravelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282704F2A6AAC40004F1210 /* EatravelUITests.swift */; };
 		228270522A6AAC40004F1210 /* EatravelUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228270512A6AAC40004F1210 /* EatravelUITestsLaunchTests.swift */; };
+		228270602A6AB13B004F1210 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282705F2A6AB13B004F1210 /* LoginViewController.swift */; };
+		228270642A6AB1DC004F1210 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228270632A6AB1DC004F1210 /* CustomButton.swift */; };
+		228270662A6AB1FA004F1210 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228270652A6AB1FA004F1210 /* CustomTextField.swift */; };
+		228270682A6AB2AC004F1210 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228270672A6AB2AC004F1210 /* AuthHeaderView.swift */; };
+		2282706A2A6AB2DD004F1210 /* ProgressActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228270692A6AB2DD004F1210 /* ProgressActivityIndicator.swift */; };
+		2282706C2A6AB7A9004F1210 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282706B2A6AB7A9004F1210 /* RegisterViewController.swift */; };
+		2282706F2A6AB910004F1210 /* WebViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282706E2A6AB910004F1210 /* WebViewerController.swift */; };
+		228270712A6AC3F1004F1210 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228270702A6AC3F1004F1210 /* ForgotPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +57,14 @@
 		2282704B2A6AAC40004F1210 /* EatravelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EatravelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2282704F2A6AAC40004F1210 /* EatravelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatravelUITests.swift; sourceTree = "<group>"; };
 		228270512A6AAC40004F1210 /* EatravelUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatravelUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2282705F2A6AB13B004F1210 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		228270632A6AB1DC004F1210 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		228270652A6AB1FA004F1210 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		228270672A6AB2AC004F1210 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
+		228270692A6AB2DD004F1210 /* ProgressActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressActivityIndicator.swift; sourceTree = "<group>"; };
+		2282706B2A6AB7A9004F1210 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		2282706E2A6AB910004F1210 /* WebViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewerController.swift; sourceTree = "<group>"; };
+		228270702A6AC3F1004F1210 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +115,11 @@
 		2282702D2A6AAC3D004F1210 /* Eatravel */ = {
 			isa = PBXGroup;
 			children = (
+				2282706D2A6AB8FB004F1210 /* Helpers */,
+				228270622A6AB1B2004F1210 /* Components */,
+				2282705E2A6AB12A004F1210 /* Controller */,
 				2282702E2A6AAC3D004F1210 /* AppDelegate.swift */,
 				228270302A6AAC3D004F1210 /* SceneDelegate.swift */,
-				228270322A6AAC3D004F1210 /* ViewController.swift */,
 				228270342A6AAC3D004F1210 /* Main.storyboard */,
 				228270372A6AAC40004F1210 /* Assets.xcassets */,
 				228270392A6AAC40004F1210 /* LaunchScreen.storyboard */,
@@ -125,6 +143,36 @@
 				228270512A6AAC40004F1210 /* EatravelUITestsLaunchTests.swift */,
 			);
 			path = EatravelUITests;
+			sourceTree = "<group>";
+		};
+		2282705E2A6AB12A004F1210 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				228270322A6AAC3D004F1210 /* ViewController.swift */,
+				2282705F2A6AB13B004F1210 /* LoginViewController.swift */,
+				2282706B2A6AB7A9004F1210 /* RegisterViewController.swift */,
+				228270702A6AC3F1004F1210 /* ForgotPasswordViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		228270622A6AB1B2004F1210 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				228270632A6AB1DC004F1210 /* CustomButton.swift */,
+				228270652A6AB1FA004F1210 /* CustomTextField.swift */,
+				228270672A6AB2AC004F1210 /* AuthHeaderView.swift */,
+				228270692A6AB2DD004F1210 /* ProgressActivityIndicator.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2282706D2A6AB8FB004F1210 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2282706E2A6AB910004F1210 /* WebViewerController.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +306,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2282706C2A6AB7A9004F1210 /* RegisterViewController.swift in Sources */,
+				228270602A6AB13B004F1210 /* LoginViewController.swift in Sources */,
+				228270712A6AC3F1004F1210 /* ForgotPasswordViewController.swift in Sources */,
+				2282706A2A6AB2DD004F1210 /* ProgressActivityIndicator.swift in Sources */,
 				228270332A6AAC3D004F1210 /* ViewController.swift in Sources */,
+				228270662A6AB1FA004F1210 /* CustomTextField.swift in Sources */,
 				2282702F2A6AAC3D004F1210 /* AppDelegate.swift in Sources */,
 				228270312A6AAC3D004F1210 /* SceneDelegate.swift in Sources */,
+				228270642A6AB1DC004F1210 /* CustomButton.swift in Sources */,
+				2282706F2A6AB910004F1210 /* WebViewerController.swift in Sources */,
+				228270682A6AB2AC004F1210 /* AuthHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
