@@ -39,8 +39,6 @@ class AuthHeaderView: UIView {
         self.titleLabel.text = title
         self.subTitleLabel.text = subTitle
         self.setupUI()
-        
-        
     }
     
     private func setupUI() {

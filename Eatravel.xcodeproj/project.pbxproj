@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2282702F2A6AAC3D004F1210 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282702E2A6AAC3D004F1210 /* AppDelegate.swift */; };
 		228270312A6AAC3D004F1210 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228270302A6AAC3D004F1210 /* SceneDelegate.swift */; };
-		228270332A6AAC3D004F1210 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228270322A6AAC3D004F1210 /* ViewController.swift */; };
+		228270332A6AAC3D004F1210 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228270322A6AAC3D004F1210 /* CitiesTableViewController.swift */; };
 		228270362A6AAC3D004F1210 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228270342A6AAC3D004F1210 /* Main.storyboard */; };
 		228270382A6AAC40004F1210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 228270372A6AAC40004F1210 /* Assets.xcassets */; };
 		2282703B2A6AAC40004F1210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228270392A6AAC40004F1210 /* LaunchScreen.storyboard */; };
@@ -24,6 +24,13 @@
 		2282706C2A6AB7A9004F1210 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282706B2A6AB7A9004F1210 /* RegisterViewController.swift */; };
 		2282706F2A6AB910004F1210 /* WebViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282706E2A6AB910004F1210 /* WebViewerController.swift */; };
 		228270712A6AC3F1004F1210 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228270702A6AC3F1004F1210 /* ForgotPasswordViewController.swift */; };
+		22B774302A77ADB600FE8A2A /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7742F2A77ADB600FE8A2A /* Restaurant.swift */; };
+		22B774322A77B10E00FE8A2A /* CityRestaurantsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B774312A77B10E00FE8A2A /* CityRestaurantsListViewController.swift */; };
+		22B774372A77DCB500FE8A2A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22B774392A77DCB500FE8A2A /* Localizable.strings */; };
+		22ECABCD2A74FA7E00CAA2F9 /* SystemDesign.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 22ECABCC2A74FA7E00CAA2F9 /* SystemDesign.rtf */; };
+		22ECABD02A7513BE00CAA2F9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 22ECABCF2A7513BE00CAA2F9 /* Alamofire */; };
+		22ECABD22A751A0100CAA2F9 /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECABD12A751A0100CAA2F9 /* LoginResponseModel.swift */; };
+		22ECABD82A764E6400CAA2F9 /* Note.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 22ECABD72A764E6400CAA2F9 /* Note.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +54,7 @@
 		2282702B2A6AAC3D004F1210 /* Eatravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eatravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2282702E2A6AAC3D004F1210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		228270302A6AAC3D004F1210 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		228270322A6AAC3D004F1210 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		228270322A6AAC3D004F1210 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
 		228270352A6AAC3D004F1210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		228270372A6AAC40004F1210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2282703A2A6AAC40004F1210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,6 +72,13 @@
 		2282706B2A6AB7A9004F1210 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2282706E2A6AB910004F1210 /* WebViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewerController.swift; sourceTree = "<group>"; };
 		228270702A6AC3F1004F1210 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		22B7742F2A77ADB600FE8A2A /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		22B774312A77B10E00FE8A2A /* CityRestaurantsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRestaurantsListViewController.swift; sourceTree = "<group>"; };
+		22B774382A77DCB500FE8A2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		22B7743B2A77E1CD00FE8A2A /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		22ECABCC2A74FA7E00CAA2F9 /* SystemDesign.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = SystemDesign.rtf; sourceTree = "<group>"; };
+		22ECABD12A751A0100CAA2F9 /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
+		22ECABD72A764E6400CAA2F9 /* Note.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Note.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22ECABD02A7513BE00CAA2F9 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +110,7 @@
 		228270222A6AAC3D004F1210 = {
 			isa = PBXGroup;
 			children = (
+				22ECABD62A764E3900CAA2F9 /* Notes */,
 				2282702D2A6AAC3D004F1210 /* Eatravel */,
 				228270442A6AAC40004F1210 /* EatravelTests */,
 				2282704E2A6AAC40004F1210 /* EatravelUITests */,
@@ -115,8 +131,10 @@
 		2282702D2A6AAC3D004F1210 /* Eatravel */ = {
 			isa = PBXGroup;
 			children = (
-				2282706D2A6AB8FB004F1210 /* Helpers */,
-				228270622A6AB1B2004F1210 /* Components */,
+				22B774392A77DCB500FE8A2A /* Localizable.strings */,
+				22ECABCB2A72A05400CAA2F9 /* Model */,
+				2282706D2A6AB8FB004F1210 /* Helper */,
+				228270622A6AB1B2004F1210 /* View */,
 				2282705E2A6AB12A004F1210 /* Controller */,
 				2282702E2A6AAC3D004F1210 /* AppDelegate.swift */,
 				228270302A6AAC3D004F1210 /* SceneDelegate.swift */,
@@ -148,15 +166,16 @@
 		2282705E2A6AB12A004F1210 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				228270322A6AAC3D004F1210 /* ViewController.swift */,
+				228270322A6AAC3D004F1210 /* CitiesTableViewController.swift */,
 				2282705F2A6AB13B004F1210 /* LoginViewController.swift */,
 				2282706B2A6AB7A9004F1210 /* RegisterViewController.swift */,
 				228270702A6AC3F1004F1210 /* ForgotPasswordViewController.swift */,
+				22B774312A77B10E00FE8A2A /* CityRestaurantsListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		228270622A6AB1B2004F1210 /* Components */ = {
+		228270622A6AB1B2004F1210 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				228270632A6AB1DC004F1210 /* CustomButton.swift */,
@@ -164,15 +183,33 @@
 				228270672A6AB2AC004F1210 /* AuthHeaderView.swift */,
 				228270692A6AB2DD004F1210 /* ProgressActivityIndicator.swift */,
 			);
-			path = Components;
+			path = View;
 			sourceTree = "<group>";
 		};
-		2282706D2A6AB8FB004F1210 /* Helpers */ = {
+		2282706D2A6AB8FB004F1210 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				2282706E2A6AB910004F1210 /* WebViewerController.swift */,
 			);
-			path = Helpers;
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		22ECABCB2A72A05400CAA2F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22ECABD12A751A0100CAA2F9 /* LoginResponseModel.swift */,
+				22B7742F2A77ADB600FE8A2A /* Restaurant.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		22ECABD62A764E3900CAA2F9 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				22ECABCC2A74FA7E00CAA2F9 /* SystemDesign.rtf */,
+				22ECABD72A764E6400CAA2F9 /* Note.rtf */,
+			);
+			name = Notes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +228,9 @@
 			dependencies = (
 			);
 			name = Eatravel;
+			packageProductDependencies = (
+				22ECABCF2A7513BE00CAA2F9 /* Alamofire */,
+			);
 			productName = Eatravel;
 			productReference = 2282702B2A6AAC3D004F1210 /* Eatravel.app */;
 			productType = "com.apple.product-type.application";
@@ -261,8 +301,12 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = 228270222A6AAC3D004F1210;
+			packageReferences = (
+				22ECABCE2A7513BE00CAA2F9 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 2282702C2A6AAC3D004F1210 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -279,6 +323,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22ECABD82A764E6400CAA2F9 /* Note.rtf in Resources */,
+				22B774372A77DCB500FE8A2A /* Localizable.strings in Resources */,
+				22ECABCD2A74FA7E00CAA2F9 /* SystemDesign.rtf in Resources */,
 				2282703B2A6AAC40004F1210 /* LaunchScreen.storyboard in Resources */,
 				228270382A6AAC40004F1210 /* Assets.xcassets in Resources */,
 				228270362A6AAC3D004F1210 /* Main.storyboard in Resources */,
@@ -306,11 +353,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B774302A77ADB600FE8A2A /* Restaurant.swift in Sources */,
+				22ECABD22A751A0100CAA2F9 /* LoginResponseModel.swift in Sources */,
 				2282706C2A6AB7A9004F1210 /* RegisterViewController.swift in Sources */,
 				228270602A6AB13B004F1210 /* LoginViewController.swift in Sources */,
 				228270712A6AC3F1004F1210 /* ForgotPasswordViewController.swift in Sources */,
 				2282706A2A6AB2DD004F1210 /* ProgressActivityIndicator.swift in Sources */,
-				228270332A6AAC3D004F1210 /* ViewController.swift in Sources */,
+				22B774322A77B10E00FE8A2A /* CityRestaurantsListViewController.swift in Sources */,
+				228270332A6AAC3D004F1210 /* CitiesTableViewController.swift in Sources */,
 				228270662A6AB1FA004F1210 /* CustomTextField.swift in Sources */,
 				2282702F2A6AAC3D004F1210 /* AppDelegate.swift in Sources */,
 				228270312A6AAC3D004F1210 /* SceneDelegate.swift in Sources */,
@@ -369,6 +419,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		22B774392A77DCB500FE8A2A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22B774382A77DCB500FE8A2A /* en */,
+				22B7743B2A77E1CD00FE8A2A /* tr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -376,6 +435,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -436,6 +496,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -658,6 +719,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		22ECABCE2A7513BE00CAA2F9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		22ECABCF2A7513BE00CAA2F9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22ECABCE2A7513BE00CAA2F9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 228270232A6AAC3D004F1210 /* Project object */;
 }

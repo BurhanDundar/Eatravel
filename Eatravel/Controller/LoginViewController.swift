@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginViewController: UIViewController {
     var text: UILabel!
@@ -25,8 +26,13 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.setupUI()
         
+        loginBtn.addTarget(self, action: #selector(openMainPage), for: .touchUpInside)
         registerBtn.addTarget(self, action: #selector(openRegisterPage), for: .touchUpInside)
         forgotPasswordBtn.addTarget(self, action: #selector(openForgotPasswordPage), for: .touchUpInside)
+    }
+            
+    @objc private func openMainPage(){
+        self.loginPost()
     }
     
     @objc private func openRegisterPage(){
@@ -91,3 +97,33 @@ class LoginViewController: UIViewController {
     }
 }
 
+extension LoginViewController {
+    private func loginPost(){
+        let endpoint = "http://localhost:3001/auth/login"
+        let params = ["email": "dundarrburhan@gmail.com", "password": "123456"]
+        guard let url = URL(string: endpoint) else { return }
+        AF.request(url, method: .post, parameters: params).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let postBody = try decoder.decode(LoginResponseModel.self, from: data)
+                    
+                    guard let status = postBody.status else { return }
+                    
+                    if status == "ok" {
+                        print("giriş başarılı")
+                    } else {
+                        print("giriş başarısız")
+                    }
+                    
+                 } catch {
+                     print(error)
+                 }
+            case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+}

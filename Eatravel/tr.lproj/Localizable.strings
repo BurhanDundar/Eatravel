@@ -1,0 +1,14 @@
+/* Localizable.strings
+  Eatravel
+
+  Created by Yapı Kredi Teknoloji A.Ş. on 31.07.2023. */
+"CITIES_TABLE_TITLE" = "Şehirler";
+
+/* (No Comment) */
+"CITIES_TABLE_ISTANBUL" = "İstanbul";
+
+/* (No Comment) */
+"CITIES_TABLE_IZMIR" = "İzmir";
+
+/* (No Comment) */
+"CITY_RESTAURANTS_TABLE_NAVIGATION_TITLE" = "Restoranlar";

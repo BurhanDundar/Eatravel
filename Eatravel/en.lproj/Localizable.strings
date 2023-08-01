@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  Eatravel
+
+  Created by Yapı Kredi Teknoloji A.Ş. on 31.07.2023.
+  
+*/
+
+
+
+/* Navigation Bar Title in city list table */
+"CITIES_TABLE_TITLE" = "Cities";
+
+"CITIES_TABLE_IZMIR" = "Izmir";
+
+"CITIES_TABLE_ISTANBUL" = "Istanbul";
+
+"CITY_RESTAURANTS_TABLE_NAVIGATION_TITLE" = "Restaurants";
