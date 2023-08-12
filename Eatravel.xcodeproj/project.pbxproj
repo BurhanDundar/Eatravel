@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2273B5382A876E0200C5D5FE /* CityRestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2273B5372A876E0200C5D5FE /* CityRestaurantDetailViewController.swift */; };
 		2282702F2A6AAC3D004F1210 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282702E2A6AAC3D004F1210 /* AppDelegate.swift */; };
 		228270312A6AAC3D004F1210 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228270302A6AAC3D004F1210 /* SceneDelegate.swift */; };
 		228270332A6AAC3D004F1210 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228270322A6AAC3D004F1210 /* CitiesTableViewController.swift */; };
@@ -24,9 +25,11 @@
 		2282706C2A6AB7A9004F1210 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282706B2A6AB7A9004F1210 /* RegisterViewController.swift */; };
 		2282706F2A6AB910004F1210 /* WebViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282706E2A6AB910004F1210 /* WebViewerController.swift */; };
 		228270712A6AC3F1004F1210 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228270702A6AC3F1004F1210 /* ForgotPasswordViewController.swift */; };
+		2286ADBA2A7F94B700F4EBA4 /* RestaurantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2286ADB92A7F94B700F4EBA4 /* RestaurantCollectionViewCell.swift */; };
 		22B774302A77ADB600FE8A2A /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B7742F2A77ADB600FE8A2A /* Restaurant.swift */; };
 		22B774322A77B10E00FE8A2A /* CityRestaurantsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B774312A77B10E00FE8A2A /* CityRestaurantsListViewController.swift */; };
 		22B774372A77DCB500FE8A2A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22B774392A77DCB500FE8A2A /* Localizable.strings */; };
+		22E7A2172A87E49A00A2D5B0 /* AddCityRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E7A2162A87E49A00A2D5B0 /* AddCityRestaurantViewController.swift */; };
 		22ECABCD2A74FA7E00CAA2F9 /* SystemDesign.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 22ECABCC2A74FA7E00CAA2F9 /* SystemDesign.rtf */; };
 		22ECABD02A7513BE00CAA2F9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 22ECABCF2A7513BE00CAA2F9 /* Alamofire */; };
 		22ECABD22A751A0100CAA2F9 /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECABD12A751A0100CAA2F9 /* LoginResponseModel.swift */; };
@@ -51,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2273B5372A876E0200C5D5FE /* CityRestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		2282702B2A6AAC3D004F1210 /* Eatravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eatravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2282702E2A6AAC3D004F1210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		228270302A6AAC3D004F1210 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,10 +76,12 @@
 		2282706B2A6AB7A9004F1210 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2282706E2A6AB910004F1210 /* WebViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewerController.swift; sourceTree = "<group>"; };
 		228270702A6AC3F1004F1210 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		2286ADB92A7F94B700F4EBA4 /* RestaurantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCollectionViewCell.swift; sourceTree = "<group>"; };
 		22B7742F2A77ADB600FE8A2A /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		22B774312A77B10E00FE8A2A /* CityRestaurantsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRestaurantsListViewController.swift; sourceTree = "<group>"; };
 		22B774382A77DCB500FE8A2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		22B7743B2A77E1CD00FE8A2A /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		22E7A2162A87E49A00A2D5B0 /* AddCityRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityRestaurantViewController.swift; sourceTree = "<group>"; };
 		22ECABCC2A74FA7E00CAA2F9 /* SystemDesign.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = SystemDesign.rtf; sourceTree = "<group>"; };
 		22ECABD12A751A0100CAA2F9 /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		22ECABD72A764E6400CAA2F9 /* Note.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Note.rtf; sourceTree = "<group>"; };
@@ -171,6 +177,8 @@
 				2282706B2A6AB7A9004F1210 /* RegisterViewController.swift */,
 				228270702A6AC3F1004F1210 /* ForgotPasswordViewController.swift */,
 				22B774312A77B10E00FE8A2A /* CityRestaurantsListViewController.swift */,
+				2273B5372A876E0200C5D5FE /* CityRestaurantDetailViewController.swift */,
+				22E7A2162A87E49A00A2D5B0 /* AddCityRestaurantViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -182,6 +190,7 @@
 				228270652A6AB1FA004F1210 /* CustomTextField.swift */,
 				228270672A6AB2AC004F1210 /* AuthHeaderView.swift */,
 				228270692A6AB2DD004F1210 /* ProgressActivityIndicator.swift */,
+				2286ADB92A7F94B700F4EBA4 /* RestaurantCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -359,6 +368,8 @@
 				228270602A6AB13B004F1210 /* LoginViewController.swift in Sources */,
 				228270712A6AC3F1004F1210 /* ForgotPasswordViewController.swift in Sources */,
 				2282706A2A6AB2DD004F1210 /* ProgressActivityIndicator.swift in Sources */,
+				2286ADBA2A7F94B700F4EBA4 /* RestaurantCollectionViewCell.swift in Sources */,
+				2273B5382A876E0200C5D5FE /* CityRestaurantDetailViewController.swift in Sources */,
 				22B774322A77B10E00FE8A2A /* CityRestaurantsListViewController.swift in Sources */,
 				228270332A6AAC3D004F1210 /* CitiesTableViewController.swift in Sources */,
 				228270662A6AB1FA004F1210 /* CustomTextField.swift in Sources */,
@@ -366,6 +377,7 @@
 				228270312A6AAC3D004F1210 /* SceneDelegate.swift in Sources */,
 				228270642A6AB1DC004F1210 /* CustomButton.swift in Sources */,
 				2282706F2A6AB910004F1210 /* WebViewerController.swift in Sources */,
+				22E7A2172A87E49A00A2D5B0 /* AddCityRestaurantViewController.swift in Sources */,
 				228270682A6AB2AC004F1210 /* AuthHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
