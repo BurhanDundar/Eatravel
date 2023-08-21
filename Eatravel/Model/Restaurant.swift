@@ -12,6 +12,8 @@ struct Restaurant: Identifiable, Codable {
     var id: String { _id }
     var name: String
     var image: String
+    var description: String
+    var menu: String // Link olabilir
     var location: String
     var city: CityTypes
     var type: RestaurantTypes
@@ -40,9 +42,12 @@ extension [Restaurant] {
 #if DEBUG
 extension Restaurant {
     static var sampleData: [Restaurant] = [
-        Restaurant(name: "Mersinli Ciğerci Apo", image: "MersinliCigerciApo", location: "Özkanlar", city: .izmir, type: .restaurant, rank: "4.4"),
-        Restaurant(name: "Hacı Sokakta", image: "HaciSokakta", location: "Özkanlar", city: .izmir, type: .restaurant, rank: "4.1"),
-        Restaurant(name: "Pavlova", image: "PavlovaCafe", location: "Özkanlar", city: .izmir, type: .cafe, rank: "3.9")
+        Restaurant(name: "Mersinli Ciğerci Apo", image: "MersinliCigerciApo", description: "Mersinli Ciğerci Apo, Mersin'de kurulmuş olan bir kebap lokantasıdır.İnanılmaz lezzetli yemeklerin yanı sıra sürekli yenen mezelerin de tadına doyum olmaz.Mersinli Ciğerci Apo, Mersin'de kurulmuş olan bir kebap lokantasıdır.İnanılmaz lezzetli yemeklerin yanı sıra sürekli yenen mezelerin de tadına doyum olmaz.",
+                   menu: "", location: "Özkanlar", city: .izmir, type: .restaurant, rank: "4.4"),
+        
+        Restaurant(name: "Hacı Sokakta", image: "HaciSokakta", description: "", menu: "", location: "Özkanlar", city: .izmir, type: .restaurant, rank: "4.1"),
+        
+        Restaurant(name: "Pavlova", image: "PavlovaCafe", description: "", menu: "", location: "Özkanlar", city: .izmir, type: .cafe, rank: "3.9")
     ] //[Restaurant]()
 }
 #endif

@@ -10,7 +10,7 @@ import UIKit
 class CityRestaurantsListViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    let restaurants = Restaurant.sampleData
+    var restaurants = Restaurant.sampleData
     
       var cityName: String!
 //    init(cityName: String) {
@@ -23,6 +23,9 @@ class CityRestaurantsListViewController: UIViewController {
 //    }
 //
     override func viewDidLoad(){
+        
+        restaurants = restaurants.filter({ $0.city.rawValue == cityName.lowercased() })
+        
         navigationItem.title = NSLocalizedString("CITY_RESTAURANTS_TABLE_NAVIGATION_TITLE", comment: "City restaurants table list navigation title")
         super.viewDidLoad()
         
