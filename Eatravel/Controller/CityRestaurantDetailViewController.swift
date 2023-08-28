@@ -31,7 +31,16 @@ class CityRestaurantDetailViewController: UIViewController {
     }
     
     @objc private func toAddComment(_ sender: UIBarButtonItem){
-        
+        let viewController = AddCommentViewController()
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .cancel, target: self, action: #selector(didCancelAdd(_:)))
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true)
+    }
+    
+    @objc func didCancelAdd(_ sender: UIBarButtonItem){
+        dismiss(animated: true)
     }
     
     @objc private func toSeeRoute(_ sender: UIBarButtonItem){
@@ -61,6 +70,10 @@ class CityRestaurantDetailViewController: UIViewController {
         // resim üstü hafif karanlık olmalı
         restaurantImageView.addoverlay(alpha: 0.4)
         
+        let comment = CommentView(frame: .zero)
+//        comment.layer.borderWidth = 10
+//        comment.layer.borderColor = UIColor.red.cgColor
+        
         let restaurantNameLabel = CustomLabel(text: String(self.restaurant.name), color: .white, fontSize: 18, isBold: true)
         let restaurantRankLabel = CustomLabel(text: "\(self.restaurant.rank)/5 Puan", color: .white, fontSize: 16, isBold: true)
         let restaurantDescLabel = CustomLabel(text: String(self.restaurant.description), fontSize: 15, isLongText: true)
@@ -75,13 +88,18 @@ class CityRestaurantDetailViewController: UIViewController {
         restaurantRankLabel.translatesAutoresizingMaskIntoConstraints = false
         restaurantDescLabel.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        comment.translatesAutoresizingMaskIntoConstraints = false
                 
+        
         
         self.view.addSubview(restaurantImageView)
         self.view.addSubview(restaurantNameLabel)
         self.view.addSubview(restaurantRankLabel)
         self.view.addSubview(restaurantDescLabel)
         self.view.addSubview(segmentedControl)
+        
+        self.view.addSubview(comment)
         
         NSLayoutConstraint.activate([
             restaurantImageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -101,6 +119,10 @@ class CityRestaurantDetailViewController: UIViewController {
             
             segmentedControl.topAnchor.constraint(equalTo: restaurantDescLabel.bottomAnchor, constant: 20),
             segmentedControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            
+            comment.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20),
+            comment.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            comment.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8),
         ])
     }
 }
