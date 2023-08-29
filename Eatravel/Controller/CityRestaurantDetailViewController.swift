@@ -44,7 +44,7 @@ class CityRestaurantDetailViewController: UIViewController {
     }
     
     @objc private func toMapView(_ sender: UIBarButtonItem){
-        let vc = RestaurantMapViewController()
+        let vc = RestaurantMapViewController(restaurant: restaurant)
         navigationController?.pushViewController(vc, animated: true)
     }
     

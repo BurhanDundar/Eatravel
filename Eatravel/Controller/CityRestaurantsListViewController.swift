@@ -73,7 +73,6 @@ extension CityRestaurantsListViewController: UICollectionViewDelegateFlowLayout 
 extension CityRestaurantsListViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(self.restaurants[indexPath.row].name)
         let restaurant = self.restaurants[indexPath.row]
         let viewController = CityRestaurantDetailViewController(restaurant: restaurant)
         navigationController?.pushViewController(viewController, animated: true)

@@ -11,8 +11,8 @@ class CitiesTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
-    let cityNames = ["CITIES_TABLE_IZMIR","CITIES_TABLE_ISTANBUL"]
-    let cityImages = ["",""]
+    let cityNames = ["CITIES_TABLE_IZMIR"] //,"CITIES_TABLE_ISTANBUL"
+    let cityImages = [""] // ,""
     
 //    let cityDetailPages = ["",""]
 //    let izmirString = NSLocalizedString("CITIES_TABLE_IZMIR", comment: "İzmir")
