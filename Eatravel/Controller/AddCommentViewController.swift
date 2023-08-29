@@ -32,8 +32,7 @@ class AddCommentViewController: UIViewController {
             commentBox.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             commentBox.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             commentBox.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.85),
-            commentBox.heightAnchor.constraint(equalToConstant: 55
-                                              ),
+            commentBox.heightAnchor.constraint(equalToConstant: 55),
         ])
         
     }
