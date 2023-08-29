@@ -8,6 +8,12 @@
 import UIKit
 
 class AddCommentViewController: UIViewController {
+    
+    let commentBox = CustomTextField(fieldType: .comment)
+    // let rate
+    // let images
+    // let date
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,13 +24,16 @@ class AddCommentViewController: UIViewController {
     }
     
     private func setupUI(){
-        let label = CustomLabel(text: "Add comment")
-        label.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(label)
+        //let label = CustomLabel(text: "Add comment")
+        commentBox.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(commentBox)
         
         NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+            commentBox.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            commentBox.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            commentBox.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.85),
+            commentBox.heightAnchor.constraint(equalToConstant: 55
+                                              ),
         ])
         
     }

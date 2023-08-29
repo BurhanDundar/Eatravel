@@ -24,7 +24,7 @@ class CityRestaurantsListViewController: UIViewController {
 //
     override func viewDidLoad(){
         
-        restaurants = restaurants.filter({ $0.city.rawValue == cityName.lowercased() })
+        restaurants = restaurants.filter({ $0.city.rawValue == "izmir" }) // cityName.lowercased()
         
         navigationItem.title = NSLocalizedString("CITY_RESTAURANTS_TABLE_NAVIGATION_TITLE", comment: "City restaurants table list navigation title")
         super.viewDidLoad()

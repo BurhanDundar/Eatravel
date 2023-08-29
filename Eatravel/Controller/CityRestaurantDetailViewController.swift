@@ -22,7 +22,7 @@ class CityRestaurantDetailViewController: UIViewController {
     override func viewDidLoad() {
         
         let addCommentBarButton = UIBarButtonItem(image: UIImage(systemName: "bubble.middle.bottom"), style: .plain, target: self, action: #selector(toAddComment))
-        let mapBarButton = UIBarButtonItem(image: UIImage(systemName: "map"), style: .plain, target: self, action: #selector(toSeeRoute))
+        let mapBarButton = UIBarButtonItem(image: UIImage(systemName: "map"), style: .plain, target: self, action: #selector(toMapView))
         
         navigationItem.rightBarButtonItems = [mapBarButton, addCommentBarButton]
         
@@ -43,8 +43,9 @@ class CityRestaurantDetailViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    @objc private func toSeeRoute(_ sender: UIBarButtonItem){
-        
+    @objc private func toMapView(_ sender: UIBarButtonItem){
+        let vc = RestaurantMapViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 //    func createRestaurantFeatureSegmentedControl(){

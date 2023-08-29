@@ -39,6 +39,8 @@
 		22ECABD02A7513BE00CAA2F9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 22ECABCF2A7513BE00CAA2F9 /* Alamofire */; };
 		22ECABD22A751A0100CAA2F9 /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECABD12A751A0100CAA2F9 /* LoginResponseModel.swift */; };
 		22ECABD82A764E6400CAA2F9 /* Note.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 22ECABD72A764E6400CAA2F9 /* Note.rtf */; };
+		DBC6EAD82A9C91FB00204B33 /* RestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6EAD72A9C91FB00204B33 /* RestaurantMapViewController.swift */; };
+		DBC6EADA2A9C936700204B33 /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6EAD92A9C936700204B33 /* Capital.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		22ECABCC2A74FA7E00CAA2F9 /* SystemDesign.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = SystemDesign.rtf; sourceTree = "<group>"; };
 		22ECABD12A751A0100CAA2F9 /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		22ECABD72A764E6400CAA2F9 /* Note.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Note.rtf; sourceTree = "<group>"; };
+		DBC6EAD72A9C91FB00204B33 /* RestaurantMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMapViewController.swift; sourceTree = "<group>"; };
+		DBC6EAD92A9C936700204B33 /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +194,7 @@
 				2273B5372A876E0200C5D5FE /* CityRestaurantDetailViewController.swift */,
 				22E7A2162A87E49A00A2D5B0 /* AddCityRestaurantViewController.swift */,
 				22B9FA832A98C1C700B2A9CB /* AddCommentViewController.swift */,
+				DBC6EAD72A9C91FB00204B33 /* RestaurantMapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				22ECABD12A751A0100CAA2F9 /* LoginResponseModel.swift */,
 				22B7742F2A77ADB600FE8A2A /* Restaurant.swift */,
 				22B9FA812A989DEA00B2A9CB /* Comment.swift */,
+				DBC6EAD92A9C936700204B33 /* Capital.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				22B9FA802A989DCD00B2A9CB /* CommentView.swift in Sources */,
 				22E7A21B2A88C5DD00A2D5B0 /* CustomLabel.swift in Sources */,
 				22ECABD22A751A0100CAA2F9 /* LoginResponseModel.swift in Sources */,
+				DBC6EAD82A9C91FB00204B33 /* RestaurantMapViewController.swift in Sources */,
 				2282706C2A6AB7A9004F1210 /* RegisterViewController.swift in Sources */,
 				228270602A6AB13B004F1210 /* LoginViewController.swift in Sources */,
 				228270712A6AC3F1004F1210 /* ForgotPasswordViewController.swift in Sources */,
@@ -399,6 +406,7 @@
 				22E7A2172A87E49A00A2D5B0 /* AddCityRestaurantViewController.swift in Sources */,
 				22B9FA842A98C1C700B2A9CB /* AddCommentViewController.swift in Sources */,
 				228270682A6AB2AC004F1210 /* AuthHeaderView.swift in Sources */,
+				DBC6EADA2A9C936700204B33 /* Capital.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +602,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -622,6 +631,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
