@@ -14,9 +14,6 @@ class CommentView: UIView {
     
     var comment: Comment = Comment(postId: "", parent: "", rate: .five, text: "Gerçekten güzel bir restoran. Özellikle mezeleri harika. Herkese tavsiye ederim 😄", date: "25.08.2023", images: [])
     
-    
-    
-    
     required init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
             setupUI()

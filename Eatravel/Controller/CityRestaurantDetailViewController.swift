@@ -31,7 +31,7 @@ class CityRestaurantDetailViewController: UIViewController {
     }
     
     @objc private func toAddComment(_ sender: UIBarButtonItem){
-        let viewController = AddCommentViewController()
+        let viewController = AddCommentViewController(restaurant: restaurant)
         viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .cancel, target: self, action: #selector(didCancelAdd(_:)))
         let navigationController = UINavigationController(rootViewController: viewController)
@@ -92,8 +92,6 @@ class CityRestaurantDetailViewController: UIViewController {
         
         comment.translatesAutoresizingMaskIntoConstraints = false
                 
-        
-        
         self.view.addSubview(restaurantImageView)
         self.view.addSubview(restaurantNameLabel)
         self.view.addSubview(restaurantRankLabel)
