@@ -2,12 +2,25 @@
 //  PhotoCell.swift
 //  Eatravel
 //
-//  Created by Yapı Kredi Teknoloji A.Ş. on 31.08.2023.
+//  Created by Burhan Dündar on 31.08.2023.
 //
 
 import UIKit
 
 class PhotoCell: UICollectionViewCell {
+    let imageView = UIImageView()
     
-    @IBOutlet weak var photoImageView: UIImageView!
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(imageView)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.imageView.frame = bounds
+    }
 }

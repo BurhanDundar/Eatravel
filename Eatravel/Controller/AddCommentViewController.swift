@@ -9,24 +9,6 @@ import UIKit
 import Photos
 import PhotosUI
 
-class PhotoCell: UICollectionViewCell {
-    let imageView = UIImageView()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addSubview(imageView)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.imageView.frame = bounds
-    }
-}
-
 class AddCommentViewController: UIViewController {
     
     let restaurantNameLabel = CustomLabel(fontSize: 22, isBold: true)
@@ -38,7 +20,7 @@ class AddCommentViewController: UIViewController {
     
     
     
-    private let collectionView: UICollectionView = {
+    private let collectionView: UICollectionView = { // belki bir view haline getirilebilir burası
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(PhotoCell.self, forCellWithReuseIdentifier: "PhotoCell")

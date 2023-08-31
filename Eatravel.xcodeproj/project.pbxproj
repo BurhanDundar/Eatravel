@@ -45,6 +45,7 @@
 		22ECABD82A764E6400CAA2F9 /* Note.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 22ECABD72A764E6400CAA2F9 /* Note.rtf */; };
 		DBC6EAD82A9C91FB00204B33 /* RestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6EAD72A9C91FB00204B33 /* RestaurantMapViewController.swift */; };
 		DBC6EADA2A9C936700204B33 /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6EAD92A9C936700204B33 /* Capital.swift */; };
+		DBDC07012AA0C48300C5E091 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC07002AA0C48300C5E091 /* PhotoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		22ECABD72A764E6400CAA2F9 /* Note.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Note.rtf; sourceTree = "<group>"; };
 		DBC6EAD72A9C91FB00204B33 /* RestaurantMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMapViewController.swift; sourceTree = "<group>"; };
 		DBC6EAD92A9C936700204B33 /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
+		DBDC07002AA0C48300C5E091 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 				22B9FA7F2A989DCD00B2A9CB /* CommentView.swift */,
 				22391FAC2A9E7149000EA271 /* CustomTextView.swift */,
 				22B378842A9F40730088FBBC /* RatingView.swift */,
+				DBDC07002AA0C48300C5E091 /* PhotoCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBDC07012AA0C48300C5E091 /* PhotoCell.swift in Sources */,
 				22B774302A77ADB600FE8A2A /* Restaurant.swift in Sources */,
 				22B9FA802A989DCD00B2A9CB /* CommentView.swift in Sources */,
 				22391FAD2A9E7149000EA271 /* CustomTextView.swift in Sources */,
