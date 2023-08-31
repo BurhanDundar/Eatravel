@@ -30,9 +30,8 @@ class RestaurantMapViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        self.view.backgroundColor = .systemBackground
         super.viewDidLoad()
-        
-        
         
         let restaurantInMap = Capital(title: restaurant.name, coordinate: CLLocationCoordinate2D(latitude: restaurant.latitude ?? IZMIR_LATITUDE, longitude: restaurant.longitude ?? IZMIR_LONGITUDE), info: restaurant.description)
         
@@ -48,7 +47,23 @@ class RestaurantMapViewController: UIViewController {
         
         self.view.addSubview(mapView)
         
-        mapView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        mapView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            mapView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            mapView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            mapView.heightAnchor.constraint(equalToConstant: 400)
+        ])
+        
+//        mapView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+//        mapView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
     }
 }
+
+//extension RestaurantMapViewController: CLLocationManagerDelegate {
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if let location = locations.last{
+//            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+//            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+//            self.mapView.setRegion(region, animated: true)
+//        }
+//    }
+//}

@@ -45,23 +45,26 @@ class RatingView: UIView {
         }
     
     private func setupUI() {
-            self.backgroundColor = .init(hexString: "#ffd5c2")
+        self.backgroundColor = .clear // .init(hexString: "#ffd5c2")
             
             self.addSubview(container)
             container.translatesAutoresizingMaskIntoConstraints = false
+            titleLabel.translatesAutoresizingMaskIntoConstraints = false
             starsContainer.translatesAutoresizingMaskIntoConstraints = false
+        
         
             container.leftAnchor.constraint(equalTo: self.leftAnchor, constant: Constants.containerHorizontalInsets).isActive = true
             container.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -Constants.containerHorizontalInsets).isActive = true
             
             starsContainer.heightAnchor.constraint(equalToConstant: Constants.starContainerHeight).isActive = true
+        
+            self.heightAnchor.constraint(equalToConstant: 100).isActive = true // Bundan Emin değilim
 
             container.addArrangedSubview(titleLabel)
             container.addArrangedSubview(starsContainer)
         }
     
     @objc func didSelectRate(gesture: UITapGestureRecognizer) {
-        print("tapped")
            let location = gesture.location(in: starsContainer)
            let starWidth = starsContainer.bounds.width / CGFloat(Constants.starsCount)
            let rate = Int(location.x / starWidth) + 1
@@ -71,6 +74,8 @@ class RatingView: UIView {
                feedbackGenerator.selectionChanged()
                self.selectedRate = rate
            }
+        
+            print(rate)
            
            /// loop through starsContainer arrangedSubviews and
            /// look for all Subviews of type UIImageView and change
@@ -95,6 +100,7 @@ class RatingView: UIView {
         private func makeStarIcon() -> UIImageView {
             /// declare default icon and highlightedImage
             let imageView = UIImageView(image: #imageLiteral(resourceName: "icon_unfilled_star"), highlightedImage: #imageLiteral(resourceName: "icon_filled_star"))
+//            let imageView = UIImageView(image: UIImage(systemName: "star"), highlightedImage: UIImage(systemName: "star.fill"))
             imageView.contentMode = .scaleAspectFit
             imageView.isUserInteractionEnabled = true
             return imageView
