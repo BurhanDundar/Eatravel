@@ -31,12 +31,21 @@ class CityRestaurantDetailViewController: UIViewController {
     }
     
     @objc private func toAddComment(_ sender: UIBarButtonItem){
-        let viewController = AddCommentViewController(restaurant: restaurant)
-        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .cancel, target: self, action: #selector(didCancelAdd(_:)))
-        let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "AddCommentViewController") as! AddCommentViewController
+            viewController.restaurant = restaurant
+            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
+                barButtonSystemItem: .cancel, target: self, action: #selector(didCancelAdd(_:)))
+            let navigationController = UINavigationController(rootViewController: viewController)
+            navigationController.modalPresentationStyle = .fullScreen
+            present(navigationController, animated: true)
+        
+//        let viewController = AddCommentViewController(restaurant: restaurant)
+//        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
+//            barButtonSystemItem: .cancel, target: self, action: #selector(didCancelAdd(_:)))
+//        let navigationController = UINavigationController(rootViewController: viewController)
+//        navigationController.modalPresentationStyle = .fullScreen
+//        present(navigationController, animated: true)
     }
     
     @objc func didCancelAdd(_ sender: UIBarButtonItem){

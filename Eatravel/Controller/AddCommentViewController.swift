@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class AddCommentViewController: UIViewController {
     
@@ -13,20 +14,28 @@ class AddCommentViewController: UIViewController {
     let commentBox = CustomTextView()
     let ratingView = RatingView()
     let chooseImagesBtn = CustomButton(title: "Fotoğraf Seç", hasBackground: true, fontSize: .med)
+//    let collectionView = UICollectionView()
+    var imageArray = [UIImage]()
+    
+    
+    @IBOutlet weak var photoCollectionView: UICollectionView!
+    
     
     // let rate -> fill Stars
     // let images -> collectionView
     // let date -> dynamic
     
-    var restaurant: Restaurant
-    init(restaurant: Restaurant) {
-        self.restaurant = restaurant
-        super.init(nibName: nil, bundle: nil)
-    }
+    var restaurant: Restaurant!
     
-    required init?(coder: NSCoder) {
-        fatalError("AddCommentViewController fatal error")
-    }
+//    var restaurant: Restaurant
+//    init(restaurant: Restaurant) {
+//        self.restaurant = restaurant
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("AddCommentViewController fatal error")
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +43,19 @@ class AddCommentViewController: UIViewController {
         view = UIView()
         view.backgroundColor = .systemBackground
         commentBox.delegate = self
+//        collectionView.delegate = self
+//        collectionView.dataSource = self
+        chooseImagesBtn.addTarget(self, action: #selector(addPhotoButtonTapped), for: .touchUpInside)
         self.setupUI()
+    }
+    
+    @objc private func addPhotoButtonTapped(_ sender: UIButton){
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 3
+        
+        let phPickerVC = PHPickerViewController(configuration: config)
+        phPickerVC.delegate = self
+        self.present(phPickerVC, animated: true)
     }
     
     
@@ -87,5 +108,37 @@ extension AddCommentViewController: UITextViewDelegate {
             self.commentBox.text = "Comment..."
             self.commentBox.textColor = UIColor.lightGray
         }
+    }
+}
+
+extension AddCommentViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        dismiss(animated: true)
+        for result in results {
+            result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
+                if let image = object as? UIImage {
+                    self.imageArray.append(image)
+                }
+                
+                DispatchQueue.main.async {
+                    self.photoCollectionView.reloadData()
+                }
+            }
+        }
+    }
+}
+
+extension AddCommentViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.imageArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.photoImageView.image = imageArray[indexPath.row]
+        return cell
     }
 }
