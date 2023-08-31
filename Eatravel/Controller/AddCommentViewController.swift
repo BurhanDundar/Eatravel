@@ -6,7 +6,26 @@
 //
 
 import UIKit
+import Photos
 import PhotosUI
+
+class PhotoCell: UICollectionViewCell {
+    let imageView = UIImageView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(imageView)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.imageView.frame = bounds
+    }
+}
 
 class AddCommentViewController: UIViewController {
     
@@ -18,24 +37,15 @@ class AddCommentViewController: UIViewController {
     var imageArray = [UIImage]()
     
     
-    @IBOutlet weak var photoCollectionView: UICollectionView!
     
-    
-    // let rate -> fill Stars
-    // let images -> collectionView
-    // let date -> dynamic
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.register(PhotoCell.self, forCellWithReuseIdentifier: "PhotoCell")
+        return cv
+    }()
     
     var restaurant: Restaurant!
-    
-//    var restaurant: Restaurant
-//    init(restaurant: Restaurant) {
-//        self.restaurant = restaurant
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("AddCommentViewController fatal error")
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,15 +53,24 @@ class AddCommentViewController: UIViewController {
         view = UIView()
         view.backgroundColor = .systemBackground
         commentBox.delegate = self
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
         chooseImagesBtn.addTarget(self, action: #selector(addPhotoButtonTapped), for: .touchUpInside)
+        
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
+//        ratingView.isUserInteractionEnabled = true
+//        ratingView.addGestureRecognizer(tapGesture)
+        
         self.setupUI()
+    }
+    
+    @objc func tapped(){
+        print("Tapped!")
     }
     
     @objc private func addPhotoButtonTapped(_ sender: UIButton){
         var config = PHPickerConfiguration()
-        config.selectionLimit = 3
+        config.selectionLimit = 6
         
         let phPickerVC = PHPickerViewController(configuration: config)
         phPickerVC.delegate = self
@@ -67,11 +86,13 @@ class AddCommentViewController: UIViewController {
         commentBox.translatesAutoresizingMaskIntoConstraints = false
         ratingView.translatesAutoresizingMaskIntoConstraints = false
         chooseImagesBtn.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
                 
         self.view.addSubview(restaurantNameLabel)
         self.view.addSubview(commentBox)
         self.view.addSubview(ratingView)
         self.view.addSubview(chooseImagesBtn)
+        self.view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
             restaurantNameLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -85,10 +106,16 @@ class AddCommentViewController: UIViewController {
             ratingView.topAnchor.constraint(equalTo: commentBox.bottomAnchor, constant: 20),
             ratingView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             
-            chooseImagesBtn.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 100),
+            chooseImagesBtn.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 40),
             chooseImagesBtn.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             chooseImagesBtn.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.85),
-            chooseImagesBtn.heightAnchor.constraint(equalToConstant: 55)
+            chooseImagesBtn.heightAnchor.constraint(equalToConstant: 55),
+            
+            collectionView.topAnchor.constraint(equalTo: chooseImagesBtn.bottomAnchor, constant: 20),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            collectionView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            collectionView.heightAnchor.constraint(equalToConstant: 400)
             
         ])
     }
@@ -121,7 +148,7 @@ extension AddCommentViewController: PHPickerViewControllerDelegate {
                 }
                 
                 DispatchQueue.main.async {
-                    self.photoCollectionView.reloadData()
+                    self.collectionView.reloadData()
                 }
             }
         }
@@ -138,7 +165,22 @@ extension AddCommentViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.photoImageView.image = imageArray[indexPath.row]
+        cell.imageView.image = imageArray[indexPath.row]
         return cell
+        
+    }
+}
+
+extension AddCommentViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: collectionView.frame.size.width / 3 - 2, height: collectionView.frame.size.height / 3 - 2)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        2
     }
 }
