@@ -9,6 +9,8 @@ import UIKit
 
 class CityRestaurantDetailViewController: UIViewController {
     
+    var postViewTempArray = ["Post 1","Post 2","Post 3","Post 4"]
+    
     var restaurant: Restaurant
     init(restaurant: Restaurant){
         self.restaurant = restaurant
@@ -19,12 +21,22 @@ class CityRestaurantDetailViewController: UIViewController {
         fatalError("CityRestaurantDetailViewController fatal error")
     }
     
+    private let collectionView: UICollectionView = { // belki bir view haline getirilebilir burası
+        let layout = UICollectionViewFlowLayout()
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.register(PostViewCell.self, forCellWithReuseIdentifier: PostViewCell.reuseIdentifier)
+        return cv
+    }()
+    
     override func viewDidLoad() {
         
         let addCommentBarButton = UIBarButtonItem(image: UIImage(systemName: "bubble.middle.bottom"), style: .plain, target: self, action: #selector(toAddComment))
         let mapBarButton = UIBarButtonItem(image: UIImage(systemName: "map"), style: .plain, target: self, action: #selector(toMapView))
         
         navigationItem.rightBarButtonItems = [mapBarButton, addCommentBarButton]
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         super.viewDidLoad()
         self.setupUI()
@@ -62,9 +74,9 @@ class CityRestaurantDetailViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-//    func createRestaurantFeatureSegmentedControl(){
-//
-//    }
+    //    func createRestaurantFeatureSegmentedControl(){
+    //
+    //    }
     
     @objc private func restaurantFeatureDidChange(_ sender: UISegmentedControl){
         switch sender.selectedSegmentIndex {
@@ -85,7 +97,7 @@ class CityRestaurantDetailViewController: UIViewController {
         // resim üstü hafif karanlık olmalı
         restaurantImageView.addoverlay(alpha: 0.4)
         
-        let comment = CommentView(frame: .zero)
+//        let comment = CommentView(frame: .zero)
 //        comment.layer.borderWidth = 10
 //        comment.layer.borderColor = UIColor.red.cgColor
         
@@ -104,15 +116,17 @@ class CityRestaurantDetailViewController: UIViewController {
         restaurantDescLabel.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         
-        comment.translatesAutoresizingMaskIntoConstraints = false
+//        comment.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
                 
         self.view.addSubview(restaurantImageView)
         self.view.addSubview(restaurantNameLabel)
         self.view.addSubview(restaurantRankLabel)
         self.view.addSubview(restaurantDescLabel)
         self.view.addSubview(segmentedControl)
+        self.view.addSubview(collectionView)
         
-        self.view.addSubview(comment)
+//        self.view.addSubview(comment)
         
         NSLayoutConstraint.activate([
             restaurantImageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -133,9 +147,15 @@ class CityRestaurantDetailViewController: UIViewController {
             segmentedControl.topAnchor.constraint(equalTo: restaurantDescLabel.bottomAnchor, constant: 20),
             segmentedControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             
-            comment.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20),
-            comment.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            comment.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8),
+//            comment.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20),
+//            comment.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+//            comment.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8),
+            
+            collectionView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            collectionView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            collectionView.heightAnchor.constraint(equalToConstant: 300)
         ])
     }
 }
@@ -151,3 +171,34 @@ extension UIView {
     }
     //This function will add a layer on any `UIView` to make that `UIView` look darkened
 }
+
+extension CityRestaurantDetailViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.postViewTempArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostViewCell.reuseIdentifier, for: indexPath) as? PostViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.helloLabel.text = self.postViewTempArray[indexPath.row]
+        return cell
+        
+    }
+}
+
+extension CityRestaurantDetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height / 5 - 2)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        2
+    }
+}
+
