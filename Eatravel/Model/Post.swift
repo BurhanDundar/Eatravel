@@ -31,6 +31,8 @@ extension [Post] {
 extension Post {
     static var sampleData: [Post] = [
         Post(image: "", description: "This is the first post description", likeCount: 1, createdAt: "12 Temmuz 2023"),
+        Post(image: "", description: "This is the second post description", likeCount: 2, createdAt: "17 Ağustos 2023"),
+        Post(image: "", description: "This is the second post description", likeCount: 2, createdAt: "17 Ağustos 2023"),
         Post(image: "", description: "This is the second post description", likeCount: 2, createdAt: "17 Ağustos 2023")
     ]
 }

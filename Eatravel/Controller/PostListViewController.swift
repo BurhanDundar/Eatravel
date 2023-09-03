@@ -31,7 +31,7 @@ class PostListViewController: UIViewController {
     private func setupUI(){
         
         
-        self.collectionView.backgroundColor = .red
+//        self.collectionView.backgroundColor = .red
         
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -59,7 +59,10 @@ extension PostListViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.helloLabel.text = self.posts[indexPath.row].description
+        cell.userName.text = "Burhan Dündar"
+        cell.userProfilePhoto.image = UIImage(named: "ProfilePhoto")
+        cell.postImg.image = UIImage(named: "MersinliCigerciApo")
+        cell.postDesc.text = self.posts[indexPath.row].description
         return cell
         
     }
@@ -67,7 +70,7 @@ extension PostListViewController: UICollectionViewDataSource {
 
 extension PostListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height / 3 - 2)
+        CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height / 2.5 - 2)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

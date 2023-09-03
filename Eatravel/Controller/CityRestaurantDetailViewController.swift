@@ -9,7 +9,11 @@ import UIKit
 
 class CityRestaurantDetailViewController: UIViewController {
     
-    var postViewTempArray = ["Post 1","Post 2","Post 3","Post 4"]
+//    var postViewTempArray = ["Post 1","Post 2","Post 3","Post 4"]
+    
+// Burda yorum olarak en beğenilen 3 yorum olabilir
+
+    var posts = Post.sampleData
     
     var restaurant: Restaurant
     init(restaurant: Restaurant){
@@ -174,7 +178,7 @@ extension UIView {
 
 extension CityRestaurantDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.postViewTempArray.count
+        return self.posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -182,15 +186,26 @@ extension CityRestaurantDetailViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.helloLabel.text = self.postViewTempArray[indexPath.row]
+        cell.userName.text = "Burhan Dündar"
+        cell.userProfilePhoto.image = UIImage(named: "ProfilePhoto")
+        cell.postImg.image = UIImage(named: "MersinliCigerciApo")
+        cell.postDesc.text = self.posts[indexPath.row].description
         return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        print("height:", scrollView.contentSize.height)
+//        print(scrollView.contentOffset.y)
+//        print(scrollView.contentSize.height)
+//        print(scrollView.frame.size.height)
         
+//        self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
     }
 }
 
 extension CityRestaurantDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height / 5 - 2)
+        CGSize(width: collectionView.frame.size.width, height: 350) // collectionView.frame.size.height / 2.5 - 2
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -200,5 +215,23 @@ extension CityRestaurantDetailViewController: UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         2
     }
+    
 }
 
+//Implement the UIScrollViewDelegate in your class, and then add this:
+//
+//-(void)scrollViewDidScroll: (UIScrollView*)scrollView
+//{
+//    float scrollViewHeight = scrollView.frame.size.height;
+//    float scrollContentSizeHeight = scrollView.contentSize.height;
+//    float scrollOffset = scrollView.contentOffset.y;
+//
+//    if (scrollOffset == 0)
+//    {
+//        // then we are at the top
+//    }
+//    else if (scrollOffset + scrollViewHeight == scrollContentSizeHeight)
+//    {
+//        // then we are at the end
+//    }
+//}

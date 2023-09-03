@@ -61,11 +61,11 @@ class CitiesTableViewController: UIViewController, UITableViewDelegate, UITableV
 //         viewController.cityName = cityName
 
         // v2
-//        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "CityRestaurantsListViewController") as! CityRestaurantsListViewController
-//        viewController.cityName = cityName
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "CityRestaurantsListViewController") as! CityRestaurantsListViewController
+        viewController.cityName = cityName
         
         //v3
-        let viewController = PostListViewController()
+//        let viewController = PostListViewController()
          navigationController?.pushViewController(viewController, animated: true)
     }
 }
