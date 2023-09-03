@@ -16,6 +16,7 @@ class CustomTextField: UITextField {
         case password
         case repassword
         case comment
+        case restaurantName
     }
     
     private let authFieldType: CustomTextFieldType
@@ -54,6 +55,8 @@ class CustomTextField: UITextField {
             self.isSecureTextEntry = true
         case .comment:
             self.placeholder = "Write your comment..."
+        case .restaurantName:
+            self.placeholder = "Restoran ismi" // Restaurant Name
         }
     }
     required init?(coder: NSCoder) {

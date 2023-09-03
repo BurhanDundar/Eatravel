@@ -43,6 +43,10 @@
 		22ECABD02A7513BE00CAA2F9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 22ECABCF2A7513BE00CAA2F9 /* Alamofire */; };
 		22ECABD22A751A0100CAA2F9 /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECABD12A751A0100CAA2F9 /* LoginResponseModel.swift */; };
 		22ECABD82A764E6400CAA2F9 /* Note.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 22ECABD72A764E6400CAA2F9 /* Note.rtf */; };
+		DB70A58E2AA2A84D00C02B86 /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70A58D2AA2A84D00C02B86 /* PostViewCell.swift */; };
+		DB70A5902AA2B59800C02B86 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70A58F2AA2B59800C02B86 /* PostListViewController.swift */; };
+		DB70A5942AA2B7DB00C02B86 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70A5932AA2B7DB00C02B86 /* Post.swift */; };
+		DB70A5962AA2B89800C02B86 /* PostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70A5952AA2B89800C02B86 /* PostComment.swift */; };
 		DBC6EAD82A9C91FB00204B33 /* RestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6EAD72A9C91FB00204B33 /* RestaurantMapViewController.swift */; };
 		DBC6EADA2A9C936700204B33 /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6EAD92A9C936700204B33 /* Capital.swift */; };
 		DBDC07012AA0C48300C5E091 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC07002AA0C48300C5E091 /* PhotoCell.swift */; };
@@ -106,6 +110,10 @@
 		22ECABCC2A74FA7E00CAA2F9 /* SystemDesign.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = SystemDesign.rtf; sourceTree = "<group>"; };
 		22ECABD12A751A0100CAA2F9 /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		22ECABD72A764E6400CAA2F9 /* Note.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Note.rtf; sourceTree = "<group>"; };
+		DB70A58D2AA2A84D00C02B86 /* PostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewCell.swift; sourceTree = "<group>"; };
+		DB70A58F2AA2B59800C02B86 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
+		DB70A5932AA2B7DB00C02B86 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		DB70A5952AA2B89800C02B86 /* PostComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComment.swift; sourceTree = "<group>"; };
 		DBC6EAD72A9C91FB00204B33 /* RestaurantMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMapViewController.swift; sourceTree = "<group>"; };
 		DBC6EAD92A9C936700204B33 /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
 		DBDC07002AA0C48300C5E091 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
@@ -206,6 +214,7 @@
 				22E7A2162A87E49A00A2D5B0 /* AddCityRestaurantViewController.swift */,
 				22B9FA832A98C1C700B2A9CB /* AddCommentViewController.swift */,
 				DBC6EAD72A9C91FB00204B33 /* RestaurantMapViewController.swift */,
+				DB70A58F2AA2B59800C02B86 /* PostListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -218,11 +227,12 @@
 				228270652A6AB1FA004F1210 /* CustomTextField.swift */,
 				228270672A6AB2AC004F1210 /* AuthHeaderView.swift */,
 				228270692A6AB2DD004F1210 /* ProgressActivityIndicator.swift */,
-				2286ADB92A7F94B700F4EBA4 /* RestaurantCollectionViewCell.swift */,
 				22B9FA7F2A989DCD00B2A9CB /* CommentView.swift */,
 				22391FAC2A9E7149000EA271 /* CustomTextView.swift */,
+				2286ADB92A7F94B700F4EBA4 /* RestaurantCollectionViewCell.swift */,
 				22B378842A9F40730088FBBC /* RatingView.swift */,
 				DBDC07002AA0C48300C5E091 /* PhotoCell.swift */,
+				DB70A58D2AA2A84D00C02B86 /* PostViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -267,6 +277,8 @@
 				22B7742F2A77ADB600FE8A2A /* Restaurant.swift */,
 				22B9FA812A989DEA00B2A9CB /* Comment.swift */,
 				DBC6EAD92A9C936700204B33 /* Capital.swift */,
+				DB70A5932AA2B7DB00C02B86 /* Post.swift */,
+				DB70A5952AA2B89800C02B86 /* PostComment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -428,6 +440,7 @@
 				22B9FA802A989DCD00B2A9CB /* CommentView.swift in Sources */,
 				22391FAD2A9E7149000EA271 /* CustomTextView.swift in Sources */,
 				22E7A21B2A88C5DD00A2D5B0 /* CustomLabel.swift in Sources */,
+				DB70A5962AA2B89800C02B86 /* PostComment.swift in Sources */,
 				22ECABD22A751A0100CAA2F9 /* LoginResponseModel.swift in Sources */,
 				DBC6EAD82A9C91FB00204B33 /* RestaurantMapViewController.swift in Sources */,
 				2282706C2A6AB7A9004F1210 /* RegisterViewController.swift in Sources */,
@@ -439,8 +452,11 @@
 				2273B5382A876E0200C5D5FE /* CityRestaurantDetailViewController.swift in Sources */,
 				22B774322A77B10E00FE8A2A /* CityRestaurantsListViewController.swift in Sources */,
 				22B3788A2A9F43120088FBBC /* UIColor+HexString.swift in Sources */,
+				DB70A5902AA2B59800C02B86 /* PostListViewController.swift in Sources */,
 				228270332A6AAC3D004F1210 /* CitiesTableViewController.swift in Sources */,
 				228270662A6AB1FA004F1210 /* CustomTextField.swift in Sources */,
+				DB70A58E2AA2A84D00C02B86 /* PostViewCell.swift in Sources */,
+				DB70A5942AA2B7DB00C02B86 /* Post.swift in Sources */,
 				2282702F2A6AAC3D004F1210 /* AppDelegate.swift in Sources */,
 				22B3788C2A9F43300088FBBC /* UIView+PulseAnimation.swift in Sources */,
 				228270312A6AAC3D004F1210 /* SceneDelegate.swift in Sources */,

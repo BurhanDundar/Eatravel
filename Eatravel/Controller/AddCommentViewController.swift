@@ -23,7 +23,7 @@ class AddCommentViewController: UIViewController {
     private let collectionView: UICollectionView = { // belki bir view haline getirilebilir burası
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.register(PhotoCell.self, forCellWithReuseIdentifier: "PhotoCell")
+        cv.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.reuseIdentifier)
         return cv
     }()
     
@@ -143,7 +143,7 @@ extension AddCommentViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseIdentifier, for: indexPath) as? PhotoCell else {
             return UICollectionViewCell()
         }
         

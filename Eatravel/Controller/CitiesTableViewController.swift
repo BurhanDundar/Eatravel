@@ -52,14 +52,20 @@ class CitiesTableViewController: UIViewController, UITableViewDelegate, UITableV
         cityName = NSLocalizedString("\(cityNames[indexPath.item])", comment: "\(cityNames[indexPath.item]) in table list")
         cityImage = cityImages[indexPath.item]
         
+        // v1
 //        let viewController = CityRestaurantsListViewController()
 //        self.navigationController?.pushViewController(viewController, animated: true)
 //        performSegue(withIdentifier: cityDetailPage, sender: nil)
-        
-         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "CityRestaurantsListViewController") as! CityRestaurantsListViewController
+//         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "CityRestaurantsListViewController") as! CityRestaurantsListViewController
  //        let navigationCont = UINavigationController(rootViewController: viewController)
-         viewController.cityName = cityName
+//         viewController.cityName = cityName
 
+        // v2
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "CityRestaurantsListViewController") as! CityRestaurantsListViewController
+        viewController.cityName = cityName
+        
+        //v3
+//        let viewController = PostListViewController()
          navigationController?.pushViewController(viewController, animated: true)
     }
 }

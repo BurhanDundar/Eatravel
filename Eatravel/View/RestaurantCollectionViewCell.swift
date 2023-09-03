@@ -5,6 +5,8 @@
 //  Created by Yapı Kredi Teknoloji A.Ş. on 6.08.2023.
 //
 
+// Burası storyboard olmadan yapılacak
+
 import UIKit
 
 class RestaurantCollectionViewCell: UICollectionViewCell {
@@ -18,5 +20,4 @@ class RestaurantCollectionViewCell: UICollectionViewCell {
         self.restaurantNameLabel.text = restaurant.name
         self.restaurantRankLabel.text = restaurant.rank
     }
-    
 }
