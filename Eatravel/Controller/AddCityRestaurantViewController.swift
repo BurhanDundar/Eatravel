@@ -15,8 +15,6 @@ class AddCityRestaurantViewController: UIViewController {
     let titleLabel = CustomLabel(fontSize: 22, isBold: true)
     let restaurantNameTxtField = CustomTextField(fieldType: .restaurantName)
     
-    
-    
     private let collectionView: UICollectionView = { // belki bir view haline getirilebilir burası
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
