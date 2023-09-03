@@ -43,6 +43,7 @@
 		22ECABD02A7513BE00CAA2F9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 22ECABCF2A7513BE00CAA2F9 /* Alamofire */; };
 		22ECABD22A751A0100CAA2F9 /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECABD12A751A0100CAA2F9 /* LoginResponseModel.swift */; };
 		22ECABD82A764E6400CAA2F9 /* Note.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 22ECABD72A764E6400CAA2F9 /* Note.rtf */; };
+		DB17CD902AA4D29C00187076 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB17CD8F2AA4D29C00187076 /* SideMenuViewController.swift */; };
 		DB70A58E2AA2A84D00C02B86 /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70A58D2AA2A84D00C02B86 /* PostViewCell.swift */; };
 		DB70A5902AA2B59800C02B86 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70A58F2AA2B59800C02B86 /* PostListViewController.swift */; };
 		DB70A5942AA2B7DB00C02B86 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70A5932AA2B7DB00C02B86 /* Post.swift */; };
@@ -110,6 +111,7 @@
 		22ECABCC2A74FA7E00CAA2F9 /* SystemDesign.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = SystemDesign.rtf; sourceTree = "<group>"; };
 		22ECABD12A751A0100CAA2F9 /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		22ECABD72A764E6400CAA2F9 /* Note.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Note.rtf; sourceTree = "<group>"; };
+		DB17CD8F2AA4D29C00187076 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		DB70A58D2AA2A84D00C02B86 /* PostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewCell.swift; sourceTree = "<group>"; };
 		DB70A58F2AA2B59800C02B86 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		DB70A5932AA2B7DB00C02B86 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				22B9FA832A98C1C700B2A9CB /* AddCommentViewController.swift */,
 				DBC6EAD72A9C91FB00204B33 /* RestaurantMapViewController.swift */,
 				DB70A58F2AA2B59800C02B86 /* PostListViewController.swift */,
+				DB17CD8F2AA4D29C00187076 /* SideMenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				22B774302A77ADB600FE8A2A /* Restaurant.swift in Sources */,
 				22B9FA802A989DCD00B2A9CB /* CommentView.swift in Sources */,
 				22391FAD2A9E7149000EA271 /* CustomTextView.swift in Sources */,
+				DB17CD902AA4D29C00187076 /* SideMenuViewController.swift in Sources */,
 				22E7A21B2A88C5DD00A2D5B0 /* CustomLabel.swift in Sources */,
 				DB70A5962AA2B89800C02B86 /* PostComment.swift in Sources */,
 				22ECABD22A751A0100CAA2F9 /* LoginResponseModel.swift in Sources */,
