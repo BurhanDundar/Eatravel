@@ -12,16 +12,7 @@ class CityRestaurantsListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var restaurants = Restaurant.sampleData
     
-      var cityName: String!
-//    init(cityName: String) {
-//        self.cityName = cityName
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("CityRestaurantsListViewController fatal error")
-//    }
-//
+    var cityName: String!
     override func viewDidLoad(){
         
         restaurants = restaurants.filter({ $0.city.rawValue == "izmir" }) // cityName.lowercased()
@@ -32,6 +23,8 @@ class CityRestaurantsListViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        
+        collectionView.register(RestaurantCollectionViewCell.self, forCellWithReuseIdentifier: RestaurantCollectionViewCell.reuseIdentifier)
         
         self.setupUI()
         navigationItem.title = self.cityName
@@ -57,7 +50,7 @@ extension CityRestaurantsListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RestaurantCollectionViewCell", for: indexPath) as! RestaurantCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RestaurantCollectionViewCell.reuseIdentifier, for: indexPath) as! RestaurantCollectionViewCell
         cell.setup(with: self.restaurants[indexPath.row])
         return cell
     }
@@ -66,7 +59,7 @@ extension CityRestaurantsListViewController: UICollectionViewDataSource {
 extension CityRestaurantsListViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.size.width, height: 300)
+        return CGSize(width: self.view.frame.size.width, height: 400)
     }
 }
 
