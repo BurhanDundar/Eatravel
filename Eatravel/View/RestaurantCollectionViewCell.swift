@@ -13,28 +13,37 @@ class RestaurantCollectionViewCell: UICollectionViewCell {
      
     static let reuseIdentifier = "RestaurantCollectionViewCell"
     
-    let restaurantImageView: UIImageView = {
+    private let restaurantImageView: UIImageView = {
             let iv = UIImageView()
             iv.translatesAutoresizingMaskIntoConstraints = false
             iv.frame = UIScreen.main.bounds
             return iv
         }()
     
-    let restaurantName: UILabel = {
+    private let stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.alignment = .center
+        return stack
+    }()
+    
+    private let restaurantName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 16)
-        label.textAlignment = .center
+        label.font = .boldSystemFont(ofSize: 16)
+        label.textAlignment = .left
         label.numberOfLines = 0
         label.sizeToFit()
         return label
     }()
     
-    let restaurantRank: UILabel = {
+    private let restaurantRank: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16)
-        label.textAlignment = .center
+        label.textAlignment = .right
         label.numberOfLines = 0
         label.sizeToFit()
         return label
@@ -54,22 +63,25 @@ class RestaurantCollectionViewCell: UICollectionViewCell {
         
         backgroundColor = .clear
         
+        stackView.addArrangedSubview(restaurantName)
+        stackView.addArrangedSubview(restaurantRank)
+        
         contentView.addSubview(restaurantImageView)
-        contentView.addSubview(restaurantName)
-        contentView.addSubview(restaurantRank)
+        contentView.addSubview(stackView)
         
         NSLayoutConstraint.activate([
             restaurantImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
             restaurantImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            restaurantImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5),
+            restaurantImageView.heightAnchor.constraint(equalToConstant: 200),
             
-            restaurantName.topAnchor.constraint(equalTo: restaurantImageView.bottomAnchor, constant: 20),
-            restaurantName.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            restaurantName.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
+            stackView.topAnchor.constraint(equalTo: restaurantImageView.bottomAnchor, constant: 10),
+            stackView.heightAnchor.constraint(equalToConstant: 40),
             
-            restaurantRank.topAnchor.constraint(equalTo: restaurantName.bottomAnchor, constant: 20),
-            restaurantRank.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            restaurantRank.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9),
+            restaurantName.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
+            
+            restaurantRank.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
         ])
     }
     

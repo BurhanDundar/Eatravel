@@ -39,7 +39,13 @@ class CityRestaurantsListViewController: UIViewController {
     
     @objc func addCityRestaurant(_ sender: UIBarButtonItem){
         let viewController = AddCityRestaurantViewController()
+        viewController.delegate = self
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func addRestaurantAction(restaurant: Restaurant){
+        restaurants.append(restaurant)
+        collectionView.reloadData()
     }
 }
 
@@ -59,7 +65,7 @@ extension CityRestaurantsListViewController: UICollectionViewDataSource {
 extension CityRestaurantsListViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.size.width, height: 400)
+        return CGSize(width: self.view.frame.size.width, height: 300)
     }
 }
 
@@ -69,5 +75,11 @@ extension CityRestaurantsListViewController: UICollectionViewDelegate {
         let restaurant = self.restaurants[indexPath.row]
         let viewController = CityRestaurantDetailViewController(restaurant: restaurant)
         navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+extension CityRestaurantsListViewController: AddCityRestaurantDelegate {
+    func addRestaurant(with restaurant: Restaurant) {
+        addRestaurantAction(restaurant: restaurant)
     }
 }
