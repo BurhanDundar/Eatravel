@@ -9,6 +9,10 @@ import UIKit
 import Photos
 import PhotosUI
 
+protocol AddCommentDelegate: Any {
+    func addComment(with comment: Comment)
+}
+
 class AddCommentViewController: UIViewController {
     
     let restaurantNameLabel = CustomLabel(fontSize: 22, isBold: true)
@@ -28,6 +32,7 @@ class AddCommentViewController: UIViewController {
     }()
     
     var restaurant: Restaurant!
+    var delegate: AddCommentDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +44,10 @@ class AddCommentViewController: UIViewController {
         collectionView.dataSource = self
         chooseImagesBtn.addTarget(self, action: #selector(addPhotoButtonTapped), for: .touchUpInside)
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .cancel, target: self, action: #selector(didCancelAdd(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
+        
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
 //        ratingView.isUserInteractionEnabled = true
 //        ratingView.addGestureRecognizer(tapGesture)
@@ -46,10 +55,20 @@ class AddCommentViewController: UIViewController {
         self.setupUI()
     }
     
-    @objc func tapped(){
-        print("Tapped!")
+    @objc private func didTapDone() {
+        let comment = Comment.sampleData[0]
+        delegate?.addComment(with: comment)
+        dismiss(animated: true)
     }
     
+    @objc func didCancelAdd(_ sender: UIBarButtonItem){
+        dismiss(animated: true)
+    }
+    
+//    @objc func tapped(){
+//        print("Tapped!")
+//    }
+//    
     @objc private func addPhotoButtonTapped(_ sender: UIButton){
         var config = PHPickerConfiguration()
         config.selectionLimit = 6

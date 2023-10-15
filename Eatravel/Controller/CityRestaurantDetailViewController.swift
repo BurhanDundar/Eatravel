@@ -8,14 +8,10 @@
 import UIKit
 
 class CityRestaurantDetailViewController: UIViewController {
-    
-//    var postViewTempArray = ["Post 1","Post 2","Post 3","Post 4"]
-    
-// Burda yorum olarak en beğenilen 3 yorum olabilir
 
     var posts = Post.sampleData
-    
     var restaurant: Restaurant
+    
     init(restaurant: Restaurant){
         self.restaurant = restaurant
         super.init(nibName: nil, bundle: nil)
@@ -25,9 +21,39 @@ class CityRestaurantDetailViewController: UIViewController {
         fatalError("CityRestaurantDetailViewController fatal error")
     }
     
-    private let collectionView: UICollectionView = { // belki bir view haline getirilebilir burası
+    private let scrollView: UIScrollView = {
+        let scroll = UIScrollView(frame: UIScreen.main.bounds)
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.showsVerticalScrollIndicator = false
+        return scroll
+    }()
+    
+    private let headerView: UIView = {
+       let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private let stackView: UIStackView = {
+       let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+//        stack.alignment = .center
+        stack.spacing = 10
+        return stack
+    }()
+    
+    private lazy var baseView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.isScrollEnabled = false
         cv.register(PostViewCell.self, forCellWithReuseIdentifier: PostViewCell.reuseIdentifier)
         return cv
     }()
@@ -49,38 +75,28 @@ class CityRestaurantDetailViewController: UIViewController {
     @objc private func toAddComment(_ sender: UIBarButtonItem){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyBoard.instantiateViewController(withIdentifier: "AddCommentViewController") as! AddCommentViewController
+        viewController.delegate = self
             viewController.restaurant = restaurant
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
-                barButtonSystemItem: .cancel, target: self, action: #selector(didCancelAdd(_:)))
-            viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
+//            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
+//                barButtonSystemItem: .cancel, target: self, action: #selector(didCancelAdd(_:)))
+//            viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
             let navigationController = UINavigationController(rootViewController: viewController)
             navigationController.modalPresentationStyle = .fullScreen
             present(navigationController, animated: true)
-        
-//        let viewController = AddCommentViewController(restaurant: restaurant)
-//        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
-//            barButtonSystemItem: .cancel, target: self, action: #selector(didCancelAdd(_:)))
-//        let navigationController = UINavigationController(rootViewController: viewController)
-//        navigationController.modalPresentationStyle = .fullScreen
-//        present(navigationController, animated: true)
     }
     
-    @objc private func didTapDone() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @objc func didCancelAdd(_ sender: UIBarButtonItem){
-        dismiss(animated: true)
-    }
+//    @objc private func didTapDone() {
+//        self.dismiss(animated: true, completion: nil)
+//    }
+//
+//    @objc func didCancelAdd(_ sender: UIBarButtonItem){
+//        dismiss(animated: true)
+//    }
     
     @objc private func toMapView(_ sender: UIBarButtonItem){
         let vc = RestaurantMapViewController(restaurant: restaurant)
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    //    func createRestaurantFeatureSegmentedControl(){
-    //
-    //    }
     
     @objc private func restaurantFeatureDidChange(_ sender: UISegmentedControl){
         switch sender.selectedSegmentIndex {
@@ -98,12 +114,7 @@ class CityRestaurantDetailViewController: UIViewController {
         
         let restaurantImage = UIImage(named: restaurant.image)
         let restaurantImageView = UIImageView(image: restaurantImage)
-        // resim üstü hafif karanlık olmalı
         restaurantImageView.addoverlay(alpha: 0.4)
-        
-//        let comment = CommentView(frame: .zero)
-//        comment.layer.borderWidth = 10
-//        comment.layer.borderColor = UIColor.red.cgColor
         
         let restaurantNameLabel = CustomLabel(text: String(self.restaurant.name), color: .white, fontSize: 18, isBold: true)
         let restaurantRankLabel = CustomLabel(text: "\(self.restaurant.rank)/5 Puan", color: .white, fontSize: 16, isBold: true)
@@ -119,48 +130,76 @@ class CityRestaurantDetailViewController: UIViewController {
         restaurantRankLabel.translatesAutoresizingMaskIntoConstraints = false
         restaurantDescLabel.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        
-//        comment.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-                
-        self.view.addSubview(restaurantImageView)
-        self.view.addSubview(restaurantNameLabel)
-        self.view.addSubview(restaurantRankLabel)
-        self.view.addSubview(restaurantDescLabel)
-        self.view.addSubview(segmentedControl)
-        self.view.addSubview(collectionView)
         
-//        self.view.addSubview(comment)
+        self.view.addSubview(scrollView)
+        
+        
+        
+        scrollView.addSubview(baseView)
+        
+        baseView.addSubview(stackView)
+        
+        headerView.addSubview(restaurantImageView)
+        headerView.addSubview(restaurantNameLabel)
+        headerView.addSubview(restaurantRankLabel)
+        
+        stackView.addArrangedSubview(headerView)
+        stackView.addArrangedSubview(restaurantDescLabel)
+        stackView.addArrangedSubview(segmentedControl)
+        stackView.addArrangedSubview(collectionView)
         
         NSLayoutConstraint.activate([
-            restaurantImageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            restaurantImageView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-            restaurantImageView.heightAnchor.constraint(equalToConstant: 250),
             
-            restaurantNameLabel.bottomAnchor.constraint(equalTo: restaurantImageView.bottomAnchor, constant: -20),
-            restaurantNameLabel.leadingAnchor.constraint(equalTo: restaurantImageView.leadingAnchor, constant: 20),
+            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             
-            restaurantRankLabel.bottomAnchor.constraint(equalTo: restaurantImageView.bottomAnchor, constant: -20),
-            restaurantRankLabel.trailingAnchor.constraint(equalTo: restaurantImageView.trailingAnchor, constant: -20),
+            baseView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            baseView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            baseView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            baseView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            baseView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            
+            stackView.leadingAnchor.constraint(equalTo: baseView.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: baseView.trailingAnchor, constant: -20),
+            stackView.topAnchor.constraint(equalTo: baseView.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: baseView.bottomAnchor),
+            stackView.widthAnchor.constraint(equalToConstant: baseView.frame.width - 40),
+            
+            headerView.topAnchor.constraint(equalTo: stackView.topAnchor),
+            headerView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: 250),
+            
+            restaurantImageView.topAnchor.constraint(equalTo: headerView.topAnchor),
+            restaurantImageView.widthAnchor.constraint(equalTo: headerView.widthAnchor),
+            restaurantImageView.heightAnchor.constraint(equalTo: headerView.heightAnchor),
+            
+            restaurantNameLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -20),
+            restaurantNameLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20),
+            
+            restaurantRankLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -20),
+            restaurantRankLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20),
             
             restaurantDescLabel.topAnchor.constraint(equalTo: restaurantImageView.bottomAnchor, constant: 20),
             restaurantDescLabel.leadingAnchor.constraint(equalTo: restaurantImageView.leadingAnchor, constant: 20),
             restaurantDescLabel.trailingAnchor.constraint(equalTo: restaurantImageView.trailingAnchor, constant: -20),
-            restaurantDescLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            restaurantDescLabel.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
             
             segmentedControl.topAnchor.constraint(equalTo: restaurantDescLabel.bottomAnchor, constant: 20),
-            segmentedControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            
-//            comment.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20),
-//            comment.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-//            comment.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8),
+            segmentedControl.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
             
             collectionView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20),
-            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            collectionView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 300)
+            collectionView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            collectionView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            collectionView.heightAnchor.constraint(equalToConstant: CGFloat(self.posts.count * 350))
         ])
+    }
+    
+    private func addCommentAction(comment: Comment) {
+        print("tapped to add comment action")
     }
 }
 
@@ -173,7 +212,6 @@ extension UIView {
         overlay.alpha = alpha
         addSubview(overlay)
     }
-    //This function will add a layer on any `UIView` to make that `UIView` look darkened
 }
 
 extension CityRestaurantDetailViewController: UICollectionViewDataSource {
@@ -216,6 +254,12 @@ extension CityRestaurantDetailViewController: UICollectionViewDelegateFlowLayout
         2
     }
     
+}
+
+extension CityRestaurantDetailViewController: AddCommentDelegate {
+    func addComment(with comment: Comment) {
+        addCommentAction(comment: comment)
+    }
 }
 
 //Implement the UIScrollViewDelegate in your class, and then add this:
